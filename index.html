@@ -5,19 +5,278 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NutriGie : Your Daily Nutrition Guide</title>
-    <link
+    <!-- <link
       href="assets/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="assets/dist/css/style.css" />
     <link rel="stylesheet" href="assets/dist/css/all.min.css" />
   </head>
   <body>
-    Hello World
-    <script
+    <!-- Header Start -->
+    <header class="fixed-top shadow">
+      <div class="px-3 py-2 text-bg-light">
+        <div class="container">
+          <div
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+          >
+            <a
+              href="/"
+              class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-dark text-decoration-none"
+            >
+              <h1>NutriGie</h1>
+            </a>
+
+            <ul
+              class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
+            >
+              <li>
+                <a href="#" class="nav-link navActive">
+                  <div class="text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-house-door"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>Home</div>
+                </a>
+              </li>
+              <li>
+                <a href="/dashboard.html" class="nav-link navItem">
+                  <div class="text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-speedometer2"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"
+                      />
+                    </svg>
+                  </div>
+                  <div>Dashboard</div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link navItem">
+                  <div class="text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-clock-history"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"
+                      />
+                      <path
+                        d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"
+                      />
+                      <path
+                        d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"
+                      />
+                    </svg>
+                  </div>
+                  <div>History</div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link navItem">
+                  <div class="text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-person-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                      />
+                    </svg>
+                  </div>
+                  <div>My Account</div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header end -->
+
+    <!-- Carousel Start -->
+    <main>
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div
+          class="carousel-inner"
+          style="
+            background-image: url(assets/dist/img/carousel1.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          "
+        >
+          <div
+            class="carousel-item active"
+            style="background-color: rgba(76, 129, 49, 0.5); "
+          >
+            <div class="container">
+              <div class="carousel-caption text-center text-light">
+                <h1 class="fw-bold">NutriGie</h1>
+                <p>Your Daily Nutrition Guide</p>
+                <p style="opacity: 0">
+                  <a class="btn btn-lg bg-light" href="#">Get Started</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel End -->
+
+      <!-- About start -->
+      <div class="container text-center mb-5">
+        <h1 class="colorPrimary">About Us</h1>
+        <hr
+          class="mx-auto"
+          style="stroke-width: 2px; width: 200px; color: black"
+        />
+        <div class="row mt-5 align-items-center">
+          <div class="col-md-6">
+            <p class="text-md-start">
+              Health is the most important thing in our life. In terms of
+              healthcare, food is one of the most important factors. Around 90%
+              of illnesses are caused by diet and types of food. However, there
+              are still many people who pay less attention to a healthy diet. As
+              a result, people fail to fulfill their daily nutritional needs or
+              Recommended Dietary Allowances (RDA). NutriGie present to give you
+              daily recommendations food in order to help you fulfilled your
+              daily RDA
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img src="assets/dist/img/about.jpg" alt="about" height="300px" />
+          </div>
+        </div>
+      </div>
+      <!-- About end -->
+
+      <!-- Service Start -->
+      <div class="container mt-5">
+        <h1 class="colorPrimary text-center pt-3">
+          4 Meals Time Recommendations
+        </h1>
+        <hr
+          class="mx-auto mb-5"
+          style="stroke-width: 2px; width: 200px; color: black"
+        />
+        <div class="row justify-content-center">
+          <div class="col-lg-3 text-center my-3">
+            <img
+              src="assets/dist/img/breakfast.png"
+              width="200"
+              height="200"
+              alt="breakfast"
+              class="rounded-circle"
+            />
+            <h5 class="fw-normal mt-3">Breakfast</h5>
+          </div>
+          <div class="col-lg-3 text-center my-3">
+            <img
+              src="assets/dist/img/lunch.png"
+              width="200"
+              height="200"
+              alt="lunch"
+              class="rounded-circle"
+            />
+            <h5 class="fw-normal mt-3">Lunch</h5>
+          </div>
+          <div class="col-lg-3 text-center my-3">
+            <img
+              src="assets/dist/img/dinner.png"
+              width="200"
+              height="200"
+              alt="dinner"
+              class="rounded-circle"
+            />
+            <h5 class="fw-normal mt-3">Dinner</h5>
+          </div>
+          <div class="col-lg-3 text-center my-3">
+            <img
+              src="assets/dist/img/snack.png"
+              width="200"
+              height="200"
+              alt="snack"
+              class="rounded-circle"
+            />
+            <h5 class="fw-normal mt-3">Snack</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.row -->
+      <!-- Service End -->
+
+      <!-- Footer Start -->
+      <div class="mt-5 container-fluid bgPrimary">
+        <footer
+          class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 bgPrimary"
+        >
+          <div class="col-md-4 d-flex align-items-center">
+            </a>
+            <span class="mb-3 mb-md-0 text-white"
+              >&copy; 2023 C23-PR489, Bangkit Academy Capstone</span
+            >
+          </div>
+
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-dark" href="#"><i class="fas fa-twitter"></i></a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+      <!-- Footer End -->
+    </main>
+
+    <!-- <script
       src="assets/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
   </body>
