@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NutriGie : Your Daily Nutrition Guide</title>
+    <title>NutriGie | Dashboard</title>
     <!-- <link
       href="assets/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,7 +39,7 @@
               class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
             >
               <li>
-                <a href="/index.html" class="nav-link navActive">
+                <a href="/index.html" class="nav-link navItem">
                   <div class="text-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@
                 </a>
               </li>
               <li>
-                <a href="/history.html" class="nav-link navItem">
+                <a href="/history.html" class="nav-link navActive">
                   <div class="text-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -148,104 +148,73 @@
         >
           <div
             class="carousel-item active"
-            style="background-color: rgba(76, 129, 49, 0.5); "
-          >
-            <div class="container">
-              <div class="carousel-caption text-center text-light">
-                <h1 class="fw-bold">NutriGie</h1>
-                <p>Your Daily Nutrition Guide</p>
-                <p style="opacity: 0">
-                  <a class="btn btn-lg bg-light" href="#">Get Started</a>
-                </p>
-              </div>
-            </div>
+            style="background-color: rgba(76, 129, 49, .5); height: 400px !important;"
+          >  
           </div>
         </div>
       </div>
       <!-- Carousel End -->
 
-      <!-- About start -->
-      <div class="container text-center mb-5">
-        <h1 class="colorPrimary">About Us</h1>
-        <hr
-          class="mx-auto"
-          style="stroke-width: 2px; width: 200px; color: black"
-        />
-        <div class="row mt-5 align-items-center">
-          <div class="col-md-6">
-            <p class="text-md-start">
-              Health is the most important thing in our life. In terms of
-              healthcare, food is one of the most important factors. Around 90%
-              of illnesses are caused by diet and types of food. However, there
-              are still many people who pay less attention to a healthy diet. As
-              a result, people fail to fulfill their daily nutritional needs or
-              Recommended Dietary Allowances (RDA). NutriGie present to give you
-              daily recommendations food in order to help you fulfilled your
-              daily RDA
-            </p>
-          </div>
-          <div class="col-md-6">
-            <img src="assets/dist/img/about.jpg" alt="about" height="300px" />
-          </div>
-        </div>
-      </div>
-      <!-- About end -->
-
-      <!-- Service Start -->
-      <div class="container mt-5">
+      <!-- Progress Start -->
+      <div class="container">
         <h1 class="colorPrimary text-center pt-3">
-          4 Meals Time Recommendations
-        </h1>
-        <hr
-          class="mx-auto mb-5"
-          style="stroke-width: 2px; width: 200px; color: black"
-        />
-        <div class="row justify-content-center">
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/breakfast.png"
-              width="200"
-              height="200"
-              alt="breakfast"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Breakfast</h5>
+            Your Daily RDA History
+          </h1>
+          <hr
+            class="mx-auto mb-2"
+            style="stroke-width: 2px; width: 200px; color: black"
+          />
+          <div class="row my-4">
+            <div class="col-12 my-3">
+                <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Success striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped  bg-success" style="width: 75%; ">75%</div>
+                </div>
+                <div class="d-flex justify-content-between w-100">
+                    <span class="text-start mt-1">Sunday, 01/24/2023</span>
+                    <span class="text-end mt-1"><b>2000</b>/2200 Kkal</span>
+                </div>
+            </div>
+            <div class="col-12 my-3">
+                <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Warning striped example" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped  bg-warning" style="width: 43%; ">43%</div>
+                </div>
+                <div class="d-flex justify-content-between w-100">
+                    <span class="text-start mt-1">Sunday, 01/24/2023</span>
+                    <span class="text-end mt-1"><b>1000</b>/2200 Kkal</span>
+                </div>
+            </div>
+            <div class="col-12 my-3">
+                <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Danger striped example" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped  bg-danger" style="width: 23%; ">23%</div>
+                </div>
+                <div class="d-flex justify-content-between w-100">
+                    <span class="text-start mt-1">Sunday, 01/24/2023</span>
+                    <span class="text-end mt-1"><b>2000</b>/2200 Kkal</span>
+                </div>
+            </div>
+            <div class="col-12 my-3">
+                <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Success striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped  bg-success" style="width: 75%; ">75%</div>
+                </div>
+                <div class="d-flex justify-content-between w-100">
+                    <span class="text-start mt-1">Sunday, 01/24/2023</span>
+                    <span class="text-end mt-1"><b>2000</b>/2200 Kkal</span>
+                </div>
+            </div>
+            <div class="col-12 my-3">
+                <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Success striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped  bg-success" style="width: 75%; ">75%</div>
+                </div>
+                <div class="d-flex justify-content-between w-100">
+                    <span class="text-start mt-1">Sunday, 01/24/2023</span>
+                    <span class="text-end mt-1"><b>2000</b>/2200 Kkal</span>
+                </div>
+            </div>
           </div>
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/lunch.png"
-              width="200"
-              height="200"
-              alt="lunch"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Lunch</h5>
-          </div>
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/dinner.png"
-              width="200"
-              height="200"
-              alt="dinner"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Dinner</h5>
-          </div>
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/snack.png"
-              width="200"
-              height="200"
-              alt="snack"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Snack</h5>
-          </div>
-        </div>
       </div>
+      <!-- Progress End -->
+    
 
-      <!-- /.row -->
-      <!-- Service End -->
 
       <!-- Footer Start -->
       <div class="mt-5 container-fluid bgPrimary">
@@ -279,5 +248,8 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/dist/js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
   </body>
 </html>

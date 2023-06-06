@@ -39,7 +39,7 @@
               class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
             >
               <li>
-                <a href="/index.html" class="nav-link navActive">
+                <a href="/index.html" class="nav-link navItem">
                   <div class="text-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@
                 </a>
               </li>
               <li>
-                <a href="/profile.html" class="nav-link navItem">
+                <a href="/profile.html" class="nav-link navActive">
                   <div class="text-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -136,116 +136,91 @@
 
     <!-- Carousel Start -->
     <main>
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div
-          class="carousel-inner"
-          style="
-            background-image: url(assets/dist/img/carousel1.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-          "
-        >
-          <div
-            class="carousel-item active"
-            style="background-color: rgba(76, 129, 49, 0.5); "
-          >
-            <div class="container">
-              <div class="carousel-caption text-center text-light">
-                <h1 class="fw-bold">NutriGie</h1>
-                <p>Your Daily Nutrition Guide</p>
-                <p style="opacity: 0">
-                  <a class="btn btn-lg bg-light" href="#">Get Started</a>
-                </p>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div
+              class="carousel-inner"
+              style="
+                background-image: url(assets/dist/img/carousel1.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+              "
+            >
+              <div
+                class="carousel-item active"
+                style="background-color: rgba(76, 129, 49, .5); height: 400px !important;"
+              >  
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Carousel End -->
+          <!-- Carousel End -->
 
-      <!-- About start -->
+      <!-- Profle start -->
       <div class="container text-center mb-5">
-        <h1 class="colorPrimary">About Us</h1>
+        <h1 class="colorPrimary">Profile</h1>
         <hr
           class="mx-auto"
           style="stroke-width: 2px; width: 200px; color: black"
         />
-        <div class="row mt-5 align-items-center">
-          <div class="col-md-6">
-            <p class="text-md-start">
-              Health is the most important thing in our life. In terms of
-              healthcare, food is one of the most important factors. Around 90%
-              of illnesses are caused by diet and types of food. However, there
-              are still many people who pay less attention to a healthy diet. As
-              a result, people fail to fulfill their daily nutritional needs or
-              Recommended Dietary Allowances (RDA). NutriGie present to give you
-              daily recommendations food in order to help you fulfilled your
-              daily RDA
-            </p>
+        <div class="row">
+            <div class="col-12 my-3">
+              <div class="text-center">
+                <img src="/assets/dist/img/user.png" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px;">
+              </div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <img src="assets/dist/img/about.jpg" alt="about" height="300px" />
+          <div class="row">
+            <div class="col-6">
+              <h2 class="mb-4 colorPrimary">My Account</h2>
+              <form>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" value="John Doe" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" value="johndoe@example.com" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="gender" class="form-label">Gender</label>
+                  <select class="form-select" id="gender" disabled>
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-4 colorPrimary">Body Details</h2>
+              <form>
+                <div class="mb-3">
+                  <label for="height" class="form-label">Height (cm)</label>
+                  <input type="number" class="form-control" id="height" value="180" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="weight" class="form-label">Weight (kg)</label>
+                  <input type="number" class="form-control" id="weight" value="75" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="activity" class="form-label">Physical Activity</label>
+                  <select class="form-select" id="activity" disabled>
+                    <option value="low">Low</option>
+                    <option value="moderate" selected>Moderate</option>
+                  <option value="high">High</option>
+                  <option value="very_high">Very High</option>
+                </select>
+              </div>
+              
+          
           </div>
+          <div class="col-12 mt-3">
+                <button type="submit" class="btn bgPrimary text-white">Update</button>
+              </div>
+            </form>
         </div>
       </div>
       <!-- About end -->
-
-      <!-- Service Start -->
-      <div class="container mt-5">
-        <h1 class="colorPrimary text-center pt-3">
-          4 Meals Time Recommendations
-        </h1>
-        <hr
-          class="mx-auto mb-5"
-          style="stroke-width: 2px; width: 200px; color: black"
-        />
-        <div class="row justify-content-center">
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/breakfast.png"
-              width="200"
-              height="200"
-              alt="breakfast"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Breakfast</h5>
-          </div>
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/lunch.png"
-              width="200"
-              height="200"
-              alt="lunch"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Lunch</h5>
-          </div>
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/dinner.png"
-              width="200"
-              height="200"
-              alt="dinner"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Dinner</h5>
-          </div>
-          <div class="col-lg-3 text-center my-3">
-            <img
-              src="assets/dist/img/snack.png"
-              width="200"
-              height="200"
-              alt="snack"
-              class="rounded-circle"
-            />
-            <h5 class="fw-normal mt-3">Snack</h5>
-          </div>
-        </div>
-      </div>
-
-      <!-- /.row -->
-      <!-- Service End -->
 
       <!-- Footer Start -->
       <div class="mt-5 container-fluid bgPrimary">
