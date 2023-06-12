@@ -162,17 +162,10 @@
           class="mx-auto"
           style="stroke-width: 2px; width: 200px; color: black"
         />
-        <div class="row">
-            <div class="col-12 my-3">
-              <div class="text-center">
-                <img src="/assets/dist/img/user.png" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px;">
-              </div>
-            </div>
-          </div>
+        <form>
           <div class="row">
             <div class="col-6">
               <h2 class="mb-4 colorPrimary">My Account</h2>
-              <form>
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
                   <input type="text" class="form-control" id="name" value="John Doe" readonly>
@@ -188,12 +181,11 @@
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
-                </div>
-              </form>
+                </div> 
             </div>
             <div class="col-6">
               <h2 class="mb-4 colorPrimary">Body Details</h2>
-              <form>
+             
                 <div class="mb-3">
                   <label for="height" class="form-label">Height (cm)</label>
                   <input type="number" class="form-control" id="height" value="180" readonly>
@@ -209,16 +201,848 @@
                     <option value="moderate" selected>Moderate</option>
                   <option value="high">High</option>
                   <option value="very_high">Very High</option>
-                </select>
+                  </select>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+              <h2  class="mb-4 colorPrimary">User Meal Preferency</h2>
+           </div>
+            <div class="col-6">
+              <h2 class="mb-4 colorPrimary">Breakfast</h2>
+              <div class="mb-3">
+          <label for="breakfast-min-price">Minimum Price</label>
+                <input
+            type="number"
+            class="form-control"
+            id="breakfast-min-price"
+            placeholder="Minimum price"
+            required
+          />
               </div>
-              
-          
-          </div>
+            <div class="mb-3">
+              <label for="breakfast-max-price">Maximum Price</label>
+              <input
+            type="number"
+            class="form-control"
+            id="breakfast-max-price"
+            placeholder="Maximum price"
+            required
+          />
+            </div>
+            <div class="mb-3">
+              <h3 class="h5 mt-4 colorPrimary">
+                Range 1-10 for the following attributes:
+              </h3>
+      
+              <div class="form-group">
+                <label for="salty">Salty</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="salty"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sweet">Sweet</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sweet"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sour">Sour</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sour"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="savory">Savory</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="savory"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="spicy">Spicy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="spicy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="crispy">Crispy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="crispy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="smooth">Smooth</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="smooth"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="creamy">Creamy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="creamy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="thick">Thick</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="thick"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fried">Fried</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fried"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="boiled">Boiled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="boiled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="grilled">Grilled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="grilled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="steamed">Steamed</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="steamed"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fastFood">Fast Food</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fastFood"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="storeBought">Store Bought</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="storeBought"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+            </div>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-4 colorPrimary">Lunch</h2>
+              <div class="mb-3">
+          <label for="lunch-min-price">Minimum Price</label>
+                <input
+            type="number"
+            class="form-control"
+            id="lunch-min-price"
+            placeholder="Minimum price"
+            required
+          />
+              </div>
+            <div class="mb-3">
+              <label for="lunch-max-price">Maximum Price</label>
+              <input
+            type="number"
+            class="form-control"
+            id="lunch-max-price"
+            placeholder="Maximum price"
+            required
+          />
+            </div>
+            <div class="mb-3">
+              <h3 class="h5 mt-4 colorPrimary">
+                Range 1-10 for the following attributes:
+              </h3>
+      
+              <div class="form-group">
+                <label for="salty">Salty</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="salty"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sweet">Sweet</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sweet"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sour">Sour</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sour"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="savory">Savory</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="savory"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="spicy">Spicy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="spicy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="crispy">Crispy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="crispy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="smooth">Smooth</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="smooth"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="creamy">Creamy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="creamy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="thick">Thick</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="thick"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fried">Fried</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fried"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="boiled">Boiled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="boiled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="grilled">Grilled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="grilled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="steamed">Steamed</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="steamed"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fastFood">Fast Food</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fastFood"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="storeBought">Store Bought</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="storeBought"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+            </div>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-4 colorPrimary">Dinner</h2>
+              <div class="mb-3">
+          <label for="dinner-min-price">Minimum Price</label>
+                <input
+            type="number"
+            class="form-control"
+            id="dinner-min-price"
+            placeholder="Minimum price"
+            required
+          />
+              </div>
+            <div class="mb-3">
+              <label for="dinner-max-price">Maximum Price</label>
+              <input
+            type="number"
+            class="form-control"
+            id="dinner-max-price"
+            placeholder="Maximum price"
+            required
+          />
+            </div>
+            <div class="mb-3">
+              <h3 class="h5 mt-4 colorPrimary">
+                Range 1-10 for the following attributes:
+              </h3>
+      
+              <div class="form-group">
+                <label for="salty">Salty</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="salty"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sweet">Sweet</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sweet"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sour">Sour</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sour"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="savory">Savory</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="savory"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="spicy">Spicy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="spicy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="crispy">Crispy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="crispy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="smooth">Smooth</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="smooth"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="creamy">Creamy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="creamy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="thick">Thick</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="thick"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fried">Fried</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fried"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="boiled">Boiled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="boiled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="grilled">Grilled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="grilled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="steamed">Steamed</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="steamed"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fastFood">Fast Food</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fastFood"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="storeBought">Store Bought</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="storeBought"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+            </div>
+            </div>
+            <div class="col-6">
+              <h2 class="mb-4 colorPrimary">Snack</h2>
+              <div class="mb-3">
+          <label for="snack-min-price">Minimum Price</label>
+                <input
+            type="number"
+            class="form-control"
+            id="snack-min-price"
+            placeholder="Minimum price"
+            required
+          />
+              </div>
+            <div class="mb-3">
+              <label for="snack-max-price">Maximum Price</label>
+              <input
+            type="number"
+            class="form-control"
+            id="snack-max-price"
+            placeholder="Maximum price"
+            required
+          />
+            </div>
+            <div class="mb-3">
+              <h3 class="h5 mt-4 colorPrimary">
+                Range 1-10 for the following attributes:
+              </h3>
+      
+              <div class="form-group">
+                <label for="salty">Salty</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="salty"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sweet">Sweet</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sweet"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="sour">Sour</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sour"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="savory">Savory</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="savory"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="spicy">Spicy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="spicy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="crispy">Crispy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="crispy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="smooth">Smooth</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="smooth"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="creamy">Creamy</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="creamy"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="thick">Thick</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="thick"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fried">Fried</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fried"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="boiled">Boiled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="boiled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="grilled">Grilled</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="grilled"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="steamed">Steamed</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="steamed"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="fastFood">Fast Food</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="fastFood"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+      
+              <div class="form-group">
+                <label for="storeBought">Store Bought</label>
+                <input
+                  type="range"
+                  class="form-range"
+                  id="storeBought"
+                  min="1"
+                  max="10"
+                  step="1"
+                />
+              </div>
+            </div>
+            </div>
           <div class="col-12 mt-3">
                 <button type="submit" class="btn bgPrimary text-white">Update</button>
-              </div>
-            </form>
-        </div>
+          </div>
+        </form>
       </div>
       <!-- About end -->
 
