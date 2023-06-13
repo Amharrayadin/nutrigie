@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriGie | Sign Up</title>
+  <link rel="shortcut icon" href="assets/dist/img/Nutrigie.png" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <link href="assets/dist/css/signin.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/dist/css/style.css" />
+  <style>
+    .scrollable-form {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body class="text-center" style="
+      background-image: url(assets/dist/img/carousel1.jpg);
+      background-position: center;
+      background-size: cover;
+    ">
+  <main class="form-signin w-100 m-auto p-3 bg-light shadow-lg" style="border-radius: 15px">
+    <form id="signup-form" method="POST" action="http://localhost:3000/signup">
+      <img class="mb-4" src="assets/dist/img/Nutrigie.png" alt="" width="72" height="72" />
+      <h1 class="h3 mb-3 fw-normal colorPrimary">Sign Up</h1>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="username" placeholder="username" required />
+        <label for="username">Username</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
+        <label for="email">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" required />
+        <label for="password">Password</label>
+      </div>
+
+      <button class="w-100 btn btn-lg bgPrimary text-light" style="font-size: 1rem" type="submit">
+        Sign-Up
+      </button>
+      <p class="mt-3" style="font-size: 0.9rem">
+        Already have an account? <a href="signin.html">Sign In</a>
+      </p>
+      <p class="mt-5 mb-3 text-muted" style="font-size: 0.9rem">
+        &copy; 2023 C-23PR489 Bangkit Capstone
+      </p>
+    </form>
+
+    <form id="data-form" style="display: none">
+      <h2 class="h3 mb-3 fw-normal colorPrimary">Data Form</h2>
+
+      <div class="form-floating">
+        <select class="form-select" id="gender" required>
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <label for="gender">Gender</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="weight" placeholder="Weight (kg)" required />
+        <label for="weight">Weight (kg)</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="height" placeholder="Height (cm)" required />
+        <label for="height">Height (cm)</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-select" id="activity" required>
+          <option value="">Select activity level</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <label for="activity">Activity Level</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-select" id="occupation" required>
+          <option value="">Select occupation</option>
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+          <option value="employee">Employee</option>
+          <option value="entrepreneur">Entrepreneur</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="occupation">Occupation</label>
+      </div>
+
+      <button class="w-100 btn btn-lg bgPrimary text-light" style="font-size: 1rem" type="button" onclick="nextStep(3)">
+        Next
+      </button>
+    </form>
+
+    <form id="breakfast-form" style="display: none">
+      <h2 class="h3 mb-3 fw-normal colorPrimary">Breakfast</h2>
+
+      <div class="form-floating">
+        <input type="number" class="form-control" id="breakfast-min-price" placeholder="Minimum price" required />
+        <label for="breakfast-min-price">Minimum Price</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="breakfast-max-price" placeholder="Maximum price" required />
+        <label for="breakfast-max-price">Maximum Price</label>
+      </div>
+
+      <h3 class="h5 mt-4 colorPrimary">
+        Range 1-10 for the following attributes:
+      </h3>
+
+      <div class="form-group">
+        <label for="salty">Salty</label>
+        <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sweet">Sweet</label>
+        <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sour">Sour</label>
+        <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="savory">Savory</label>
+        <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="spicy">Spicy</label>
+        <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="crispy">Crispy</label>
+        <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="smooth">Smooth</label>
+        <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="creamy">Creamy</label>
+        <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="thick">Thick</label>
+        <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fried">Fried</label>
+        <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="boiled">Boiled</label>
+        <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="grilled">Grilled</label>
+        <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="steamed">Steamed</label>
+        <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fastFood">Fast Food</label>
+        <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="storeBought">Store Bought</label>
+        <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+      </div>
+
+      <button class="w-100 btn btn-lg bgPrimary text-light" style="font-size: 1rem" type="button" onclick="nextStep(4)">
+        Next
+      </button>
+    </form>
+
+    <form id="lunch-form" style="display: none">
+      <h2 class="h3 mb-3 fw-normal colorPrimary">lunch</h2>
+
+      <div class="form-floating">
+        <input type="number" class="form-control" id="lunch-min-price" placeholder="Minimum price" required />
+        <label for="lunch-min-price">Minimum Price</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="lunch-max-price" placeholder="Maximum price" required />
+        <label for="lunch-max-price">Maximum Price</label>
+      </div>
+
+      <h3 class="h5 mt-4 colorPrimary">
+        Range 1-10 for the following attributes:
+      </h3>
+
+      <div class="form-group">
+        <label for="salty">Salty</label>
+        <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sweet">Sweet</label>
+        <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sour">Sour</label>
+        <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="savory">Savory</label>
+        <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="spicy">Spicy</label>
+        <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="crispy">Crispy</label>
+        <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="smooth">Smooth</label>
+        <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="creamy">Creamy</label>
+        <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="thick">Thick</label>
+        <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fried">Fried</label>
+        <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="boiled">Boiled</label>
+        <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="grilled">Grilled</label>
+        <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="steamed">Steamed</label>
+        <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fastFood">Fast Food</label>
+        <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="storeBought">Store Bought</label>
+        <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+      </div>
+
+      <button class="w-100 btn btn-lg bgPrimary text-light" style="font-size: 1rem" type="button" onclick="nextStep(5)">
+        Next
+      </button>
+    </form>
+
+    <form id="dinner-form" style="display: none">
+      <h2 class="h3 mb-3 fw-normal colorPrimary">dinner</h2>
+
+      <div class="form-floating">
+        <input type="number" class="form-control" id="dinner-min-price" placeholder="Minimum price" required />
+        <label for="dinner-min-price">Minimum Price</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="dinner-max-price" placeholder="Maximum price" required />
+        <label for="dinner-max-price">Maximum Price</label>
+      </div>
+
+      <h3 class="h5 mt-4 colorPrimary">
+        Range 1-10 for the following attributes:
+      </h3>
+
+      <div class="form-group">
+        <label for="salty">Salty</label>
+        <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sweet">Sweet</label>
+        <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sour">Sour</label>
+        <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="savory">Savory</label>
+        <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="spicy">Spicy</label>
+        <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="crispy">Crispy</label>
+        <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="smooth">Smooth</label>
+        <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="creamy">Creamy</label>
+        <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="thick">Thick</label>
+        <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fried">Fried</label>
+        <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="boiled">Boiled</label>
+        <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="grilled">Grilled</label>
+        <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="steamed">Steamed</label>
+        <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fastFood">Fast Food</label>
+        <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="storeBought">Store Bought</label>
+        <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+      </div>
+
+      <button class="w-100 btn btn-lg bgPrimary text-light" style="font-size: 1rem" type="button" onclick="nextStep(6)">
+        Next
+      </button>
+    </form>
+
+    <form id="snack-form" style="display: none">
+      <h2 class="h3 mb-3 fw-normal colorPrimary">snack</h2>
+
+      <div class="form-floating">
+        <input type="number" class="form-control" id="snack-min-price" placeholder="Minimum price" required />
+        <label for="snack-min-price">Minimum Price</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" class="form-control" id="snack-max-price" placeholder="Maximum price" required />
+        <label for="snack-max-price">Maximum Price</label>
+      </div>
+
+      <h3 class="h5 mt-4 colorPrimary">
+        Range 1-10 for the following attributes:
+      </h3>
+
+      <div class="form-group">
+        <label for="salty">Salty</label>
+        <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sweet">Sweet</label>
+        <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="sour">Sour</label>
+        <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="savory">Savory</label>
+        <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="spicy">Spicy</label>
+        <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="crispy">Crispy</label>
+        <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="smooth">Smooth</label>
+        <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="creamy">Creamy</label>
+        <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="thick">Thick</label>
+        <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fried">Fried</label>
+        <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="boiled">Boiled</label>
+        <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="grilled">Grilled</label>
+        <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="steamed">Steamed</label>
+        <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="fastFood">Fast Food</label>
+        <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+      </div>
+
+      <div class="form-group">
+        <label for="storeBought">Store Bought</label>
+        <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+      </div>
+
+      <button class="w-100 btn btn-lg bgPrimary text-light" style="font-size: 1rem" type="submit">
+        Sign-Up
+      </button>
+    </form>
+
+    <!-- Repeat the above two forms for Lunch, Dinner, and Snack -->
+  </main>
+
+  <script>
+    function nextStep(step) {
+      const signupForm = document.getElementById("signup-form");
+      const dataForm = document.getElementById("data-form");
+      const breakfastForm = document.getElementById("breakfast-form");
+      const lunchForm = document.getElementById("lunch-form");
+      const dinnerForm = document.getElementById("dinner-form");
+      const snackForm = document.getElementById("snack-form");
+      // Add variables for Lunch, Dinner, and Snack forms
+
+      if (step === 2) {
+        signupForm.style.display = "none";
+        dataForm.style.display = "block";
+      } else if (step === 3) {
+        dataForm.style.display = "none";
+        breakfastForm.style.display = "block";
+      } else if (step === 4) {
+        breakfastForm.style.display = "none";
+        lunchForm.style.display = "block";
+      } else if (step === 5) {
+        lunchForm.style.display = "none";
+        dinnerForm.style.display = "block";
+      } else if (step === 6) {
+        dinnerForm.style.display = "none";
+        snackForm.style.display = "block";
+      }
+    }
+
+    function updateRangeValue(rangeId, outputId) {
+      const rangeInput = document.getElementById(rangeId);
+      const output = document.getElementById(outputId);
+      output.textContent = rangeInput.value;
+    }
+  </script>
+  <script src="js/api.js"></script>
+</body>
+
+</html>
