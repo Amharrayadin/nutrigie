@@ -24,16 +24,25 @@ router.get("/login", AuthController.login);
 router.get("/register", AuthController.register);
 
 router.get("/coba", async (req, res) => {
-  // const model = await tf.loadLayersModel("https://storage.cloud.google.com/nutrigie_models/model/output_breakfast/model.json");
-  // const model = await tf.loadLayersModel("https://storage.googleapis.com/nutrigie_models/model/output_breakfast/model.json");
+  class L2 {
+    static className = "L2";
 
-  const model = await tf.loadLayersModel("https://storage.googleapis.com/nutrigie_models/model/output_breakfast/breakfast2.json");
-  return res.send(model.summary());
+    constructor(config) {
+      return tf.regularizers.l1l2(config);
+    }
+  }
+  tf.serialization.registerClass(L2);
 
-  // const inputData = tf.tensor2d([23, 0, 0.7, 0.5, 2, 0, 0, 1, 0, 0, 0, 0.8, 0.9, 0.1, 0.2, 0.1, 0.1, 0.21, 0.44, 0.66, 0.55, 0.1, 1, 0.3, 0.5, 0.6, 0, 1]);
-  // const predictions = model.predict(inputData);
+  const model = await tf.loadLayersModel("https://storage.googleapis.com/models_nutrigie2/models/output_breakfast/model.json");
+  // return res.send(model.summary());
 
-  res.json({ msg: "sss" });
+  const x = [23, 0, 0.7, 0.5, 2, 0, 0, 1, 0, 0, 0, 0.8, 0.9, 0.1, 0.2, 0.1, 0.1, 0.21, 0.44, 0.66, 0.55, 0.1, 1, 0.3, 0.5, 0.6, 0, 1];
+  const inputShape = [None, 28];
+  // const inputShape = model.input[0].shape;
+
+  const inputData = tf.tensor2d(x, inputShape);
+  const predictions = model.predict(inputData);
+  res.send(predictions);
 });
 
 module.exports = router;
