@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "12345",
+    "database": "foods_data",
+    "host": "34.101.140.45",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "12345",
+    "database": "foods_data",
+    "host": "34.101.140.45",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "12345",
+    "database": "foods_data",
+    "host": "34.101.140.45",
+    "dialect": "mysql"
+  }
+}
