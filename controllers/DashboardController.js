@@ -1,7 +1,8 @@
-const { User, FoodsData } = require("../models");
+const { User, History, FoodsData } = require("../models");
 const tf = require("@tensorflow/tfjs");
 const math = require("mathjs");
 const { Op } = require("sequelize");
+const moment = require("moment");
 
 module.exports = {
   async index(req, res) {
@@ -341,13 +342,134 @@ module.exports = {
         },
       },
     });
-    // return res.json(breakfastMenu);
+
+    // TODAY AKG HISTORY
+    function getActivityValue(activity) {
+      switch (activity) {
+        case "low":
+          return 1.3;
+        case "moderate":
+          return 1.55;
+        case "high":
+          return 1.8;
+        default:
+          return 1.3;
+      }
+    }
+
+    const user = await User.findByPk(req.user.id);
+    // let histories = [];
+
+    // if (user) {
+    // Cari data histori untuk hari ini
+    const today = moment().subtract(0, "days").toDate();
+    const tomorrow = moment(today).add(1, "days");
+    const todayHistory = await History.findOne({
+      where: {
+        user_id: req.user.id,
+        date: {
+          [Op.gte]: today,
+        },
+      },
+      order: [["date", "DESC"]],
+    });
+
+    // Jika tidak ada data histori untuk hari ini, buat data histori baru
+    if (!todayHistory) {
+      let max_kkal = 0;
+
+      if (req.user.gender == "male") {
+        max_kkal = Math.round(
+          (66.5 +
+            13.75 * req.user.weight +
+            5.003 * req.user.height -
+            6.75 * req.user.age) *
+            getActivityValue(req.user.activity)
+        );
+      } else if (req.user.gender == "female") {
+        max_kkal = Math.round(
+          (655.1 +
+            9.563 * req.user.weight +
+            1.85 * req.user.height -
+            4.676 * req.user.age) *
+            getActivityValue(req.user.activity)
+        );
+      } else {
+        max_kkal = Math.round(
+          (66.5 +
+            13.75 * req.user.weight +
+            5.003 * req.user.height -
+            6.75 * req.user.age) *
+            getActivityValue(req.user.activity)
+        );
+      }
+
+      // Buat data histori baru untuk hari ini
+      await History.create({
+        user_id: req.user.id,
+        date: tomorrow,
+        kkal: 0,
+        max_kkal: max_kkal,
+      });
+    }
+
+    // Ambil data histori untuk hari ini setelah dibuat atau ditemukan
+    histories = await History.findOne({
+      where: {
+        user_id: req.user.id,
+        date: {
+          [Op.gte]: today,
+        },
+      },
+      order: [["date", "DESC"]],
+    });
+    // }
+
+    // return res.json({ histories });
     res.render("dashboard", {
       user: req.user,
       breakfastMenu: breakfastMenu,
       lunchMenu: lunchMenu,
       dinnerMenu: dinnerMenu,
       snackMenu: snackMenu,
+      histories: histories,
     });
+  },
+
+  // add kalori selected
+  async addKalori(req, res) {
+    const { kalori_kkal, breakfast_id, lunch_id, dinner_id, snack_id } =
+      req.body;
+    const userId = req.user.id;
+
+    // Mendapatkan histori untuk hari ini
+    const today = moment().subtract(0, "days").toDate();
+    const history = await History.findOne({
+      where: {
+        user_id: req.user.id,
+        date: {
+          [Op.gte]: today,
+        },
+      },
+      order: [["date", "DESC"]],
+    });
+
+    // Menambahkan kalori_kkal ke histori
+    // return res.json({ breakfast_id, lunch_id, dinner_id, snack_id });
+    const kkal_new = (history.kkal += parseInt(kalori_kkal, 10));
+    // history.setDataValue("breakfast_id", breakfast_id);
+    // await history.save();
+    await history.set({
+      breakfast_id: breakfast_id,
+      lunch_id: lunch_id,
+      dinner_id: dinner_id,
+      snack_id: snack_id,
+      kkal: kkal_new,
+    });
+
+    history.save();
+
+    // Redirect kembali ke halaman dashboard
+    res.redirect("/dashboard");
   },
 };

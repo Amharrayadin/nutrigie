@@ -17,13 +17,29 @@ module.exports = {
         },
       },
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       max_kkal: {
         type: Sequelize.INTEGER,
       },
       kkal: {
         type: Sequelize.INTEGER,
+      },
+      breakfast_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      lunch_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      dinner_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      snack_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
       },
     });
   },

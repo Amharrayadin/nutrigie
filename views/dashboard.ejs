@@ -123,11 +123,10 @@
       <hr class="mx-auto mb-2" style="stroke-width: 2px; width: 200px; color: black" />
       <div class="row my-4">
         <div class="col">
-          <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Success striped example"
-            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar progress-bar-striped  bg-success" style="width: 99%; ">75%</div>
+          <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Success striped example" aria-valuenow="<%= (histories.kkal / histories.max_kkal) * 100 %>" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped <%= ((histories.kkal / histories.max_kkal) * 100) < 40 ? 'bg-danger' : ((histories.kkal / histories.max_kkal) * 100) < 70 ? 'bg-warning' : 'bg-success' %>" style="width: <%= (histories.kkal / histories.max_kkal) * 100 %>%;"><%= ((histories.kkal / histories.max_kkal) * 100).toFixed(2) %>%</div>
           </div>
-          <p class="text-end mt-1"><b>2000</b>/2200 Kkal</p>
+          <p class="text-end mt-1"><b><%= histories.kkal %></b>/<%= histories.max_kkal %> Kkal</p>
         </div>
       </div>
     </div>
@@ -171,7 +170,11 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="">Select</a>
+                      <form action="/dashboard/add-kalori" method="POST">
+                        <input type="hidden" name="kalori_kkal" value="<%= bf.energi_kkal %>">
+                        <input type="hidden" name="breakfast_id" value="<%= bf.id %>">
+                        <button class="btn bg-light" type="submit">Select</button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -194,7 +197,11 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="">Select</a>
+                      <form action="/dashboard/add-kalori" method="POST">
+                        <input type="hidden" name="kalori_kkal" value="<%= bf.energi_kkal %>">
+                        <input type="hidden" name="lunch_id" value="<%= bf.id %>">
+                        <button class="btn bg-light" type="submit">Select</button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -217,7 +224,11 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="">Select</a>
+                      <form action="/dashboard/add-kalori" method="POST">
+                        <input type="hidden" name="kalori_kkal" value="<%= bf.energi_kkal %>">
+                        <input type="hidden" name="dinner_id" value="<%= bf.id %>">
+                        <button class="btn bg-light" type="submit">Select</button>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -240,7 +251,11 @@
                       </p>
                     </div>
                     <div class="btn-box">
-                      <a href="">Select</a>
+                      <form action="/dashboard/add-kalori" method="POST">
+                        <input type="hidden" name="kalori_kkal" value="<%= bf.energi_kkal %>">
+                        <input type="hidden" name="snack_id" value="<%= bf.id %>">
+                        <button class="btn bg-light" type="submit">Select</button>
+                      </form>
                     </div>
                   </div>
                 </div>
