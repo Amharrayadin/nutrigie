@@ -33,16 +33,38 @@ router.get("/coba", async (req, res) => {
   }
   tf.serialization.registerClass(L2);
 
-  const model = await tf.loadLayersModel("https://storage.googleapis.com/models_nutrigie2/models/output_breakfast/model.json");
+  const model = await tf.loadLayersModel(
+    "https://storage.googleapis.com/models_nutrigie2/models/output_breakfast/model.json"
+  );
   // return res.send(model.summary());
 
-  const x = [23, 0, 0.7, 0.5, 2, 0, 0, 1, 0, 0, 0, 0.8, 0.9, 0.1, 0.2, 0.1, 0.1, 0.21, 0.44, 0.66, 0.55, 0.1, 1, 0.3, 0.5, 0.6, 0, 1];
-  const inputShape = [None, 28];
+  const x = [
+    23, 0, 0.7, 0.5, 2, 0, 0, 1, 0, 0, 0, 0.8, 0.9, 0.1, 0.2, 0.1, 0.1, 0.21,
+    0.44, 0.66, 0.55, 0.1, 1, 0.3, 0.5, 0.6, 0, 1,
+  ];
+  const inputShape = [1, 28];
   // const inputShape = model.input[0].shape;
+
+  // const inputData = tf.tensor2d(x, inputShape);
+  // const predictions = model.predict(inputData);
+  // const predictionsArray = predictions.arraySync();
+  // res.send(predictionsArray);\
 
   const inputData = tf.tensor2d(x, inputShape);
   const predictions = model.predict(inputData);
-  res.send(predictions);
+  const topK = tf.topk(predictions, 3); // Get the top 3 predictions
+
+  const values = topK.values.arraySync(); // Convert top values to array
+  const indices = topK.indices.arraySync(); // Convert top indices to array
+
+  const topPredictions = [];
+  for (let i = 0; i < values.length; i++) {
+    const value = values[i];
+    const index = indices[i];
+    topPredictions.push({ value, index });
+  }
+
+  res.send(topPredictions);
 });
 
 module.exports = router;
