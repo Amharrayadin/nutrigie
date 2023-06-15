@@ -25,6 +25,10 @@ module.exports = {
         type: Sequelize.STRING(10),
         allowNull: true,
       },
+      job: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+      },
       height: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -38,67 +42,71 @@ module.exports = {
         allowNull: true,
       },
 
-      brekfast_min_price: {
+      breakfast_min_price: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_max_price: {
+      breakfast_max_price: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_salty: {
+      breakfast_salty: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_sweet: {
+      breakfast_sweet: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_sour: {
+      breakfast_sour: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_spicy: {
+      breakfast_savory: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_crispy: {
+      breakfast_spicy: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_smooth: {
+      breakfast_crispy: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_creamy: {
+      breakfast_smooth: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_thick: {
+      breakfast_creamy: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_fried: {
+      breakfast_thick: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_boiled: {
+      breakfast_fried: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_grilled: {
+      breakfast_boiled: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_steamed: {
+      breakfast_grilled: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_fastfood: {
+      breakfast_steamed: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      brekfast_store_bought: {
+      breakfast_fastfood: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      breakfast_store_bought: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
@@ -120,6 +128,10 @@ module.exports = {
         allowNull: true,
       },
       lunch_sour: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      lunch_savory: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
@@ -188,6 +200,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
+      dinner_savory: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
       dinner_spicy: {
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -250,6 +266,10 @@ module.exports = {
         allowNull: true,
       },
       snack_sour: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
+      snack_savory: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },

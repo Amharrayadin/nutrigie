@@ -1,9 +1,6 @@
 // tensorflow tjs
 const tf = require("@tensorflow/tfjs");
 
-// import model
-const model1 = require("../models/model1.json");
-
 // import router
 const router = require("express").Router();
 
@@ -12,16 +9,28 @@ const HomeController = require("../controllers/HomeController");
 const DashboardController = require("../controllers/DashboardController");
 const AuthController = require("../controllers/AuthController");
 const HistoryController = require("../controllers/HistoryController");
+const VerifyUser = require("../middlewares/VerifyUser");
 
 // home route
-router.get("/", HomeController.index);
-router.get("/dashboard", DashboardController.index);
-router.get("/profile", AuthController.index);
-router.get("/history", HistoryController.index);
+router.get("/", VerifyUser.auth, HomeController.index);
+router.get("/dashboard", VerifyUser.auth, DashboardController.index);
+
+// route profile
+router.get("/profile", VerifyUser.auth, AuthController.index);
+router.put(
+  "/profile/update/:id",
+  VerifyUser.auth,
+  AuthController.updateProfile
+);
+
+// route history
+router.get("/history", VerifyUser.auth, HistoryController.index);
 
 // login route
-router.get("/login", AuthController.login);
-router.get("/register", AuthController.register);
+router.get("/login", VerifyUser.guest, AuthController.login);
+router.post("/login", VerifyUser.guest, AuthController.loginProcess);
+router.get("/register", VerifyUser.guest, AuthController.register);
+router.get("/logout", VerifyUser.auth, AuthController.logout);
 
 router.get("/coba", async (req, res) => {
   class L2 {
@@ -43,7 +52,6 @@ router.get("/coba", async (req, res) => {
     0.44, 0.66, 0.55, 0.1, 1, 0.3, 0.5, 0.6, 0, 1,
   ];
   const inputShape = [1, 28];
-  // const inputShape = model.input[0].shape;
 
   // const inputData = tf.tensor2d(x, inputShape);
   // const predictions = model.predict(inputData);

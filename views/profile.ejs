@@ -80,6 +80,19 @@
                 <div>Profile</div>
               </a>
             </li>
+            <li class="ms-4">
+              <a href="/logout" class="nav-link navItem">
+                <div class="text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-person" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                  </svg>
+                </div>
+                <div>Logout</div>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -107,24 +120,25 @@
       <h1 class="colorPrimary">Profile</h1>
       <hr class="mx-auto" style="stroke-width: 2px; width: 200px; color: black" />
 
-      <form>
-        <div class="row">
+      <form action="/profile/update/<%= user.id %>?_method=PUT" method='post'>
+        <div class="row justify-content-center">
           <div class="col-6">
             <h2 class="mb-4 colorPrimary">My Account</h2>
             <div class="mb-3">
               <label for="username" class="form-label">Name</label>
-              <input type="text" class="form-control" id="username" value="">
+              <input name="username" type="text" class="form-control" id="username" value="<%= user.username %>">
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" value="">
+              <input name="email" type="email" class="form-control" id="email" value="<%= user.email %>">
             </div>
             <div class="mb-3">
               <label for="gender" class="form-label">Gender</label>
-              <select class="form-select" id="gender" disabled>
-                <option value="male" selected>Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+              <select name="gender" class="form-select" id="gender">
+                <option value="">Select</option>
+                <option value="male" <% if (user.gender == 'male') { %> selected <% } %>>Male</option>
+                <option value="female" <% if (user.gender == 'female') { %> selected <% } %>>Female</option>
+                <option value="other" <% if (user.gender == 'other') { %> selected <% } %>>Other</option>
               </select>
             </div>
           </div>
@@ -133,22 +147,39 @@
 
             <div class="mb-3">
               <label for="height" class="form-label">Height (cm)</label>
-              <input type="number" class="form-control" id="height" value="180" readonly>
+              <input name="height" type="number" class="form-control" id="height" value="<%= user.height %>">
             </div>
             <div class="mb-3">
               <label for="weight" class="form-label">Weight (kg)</label>
-              <input type="number" class="form-control" id="weight" value="75" readonly>
+              <input name="weight" type="number" class="form-control" id="weight" value="<%= user.weight %>">
             </div>
             <div class="mb-3">
               <label for="activity" class="form-label">Physical Activity</label>
-              <select class="form-select" id="activity" disabled>
-                <option value="low">Low</option>
-                <option value="moderate" selected>Moderate</option>
-                <option value="high">High</option>
-                <option value="very_high">Very High</option>
+              <select name="activity" class="form-select" id="activity">
+                <option value="">Select</option>
+                <option value="low" <% if (user.activity == 'low') { %> selected <% } %>>Low</option>
+                <option value="moderate" <% if (user.activity == 'moderate') { %> selected <% } %>>Moderate</option>
+                <option value="high" <% if (user.activity == 'high') { %> selected <% } %>>High</option>
+                <option value="very_high" <% if (user.activity == 'very_high') { %> selected <% } %>>Very High</option>
               </select>
             </div>
           </div>
+          <div class="col-6">
+            <div class="mb-3">
+              <label for="job" class="form-label">Job</label>
+              <select name="job" class="form-select" id="job">
+                <option value="">Select</option>
+                <option value="colleege student" <% if (user.job == 'colleege student') { %> selected <% } %>>Colleege Student</option>
+                <option value="enterpreneur" <% if (user.job == 'enterpreneur') { %> selected <% } %>>Enterpreneur</option>
+                <option value="pns" <% if (user.job == 'pns') { %> selected <% } %>>PNS</option>
+                <option value="police" <% if (user.job == 'police') { %> selected <% } %>>Police</option>
+                <option value="staff" <% if (user.job == 'staff') { %> selected <% } %>>Staff</option>
+                <option value="student" <% if (user.job == 'student') { %> selected <% } %>>Student</option>
+              </select>
+            </div>
+          </div>
+
+
           <div class="col-12 mt-3">
             <h2 class="mb-4 colorPrimary">User Meal Preferency</h2>
           </div>
@@ -156,11 +187,11 @@
             <h2 class="mb-4 colorPrimary">Breakfast</h2>
             <div class="mb-3">
               <label for="breakfast-min-price">Minimum Price</label>
-              <input type="number" class="form-control" id="breakfast-min-price" placeholder="Minimum price" required />
+              <input value="<%= user.breakfast_min_price %>" name="breakfast_min_price" type="number" class="form-control" id="breakfast-min-price" placeholder="Minimum price" required />
             </div>
             <div class="mb-3">
               <label for="breakfast-max-price">Maximum Price</label>
-              <input type="number" class="form-control" id="breakfast-max-price" placeholder="Maximum price" required />
+              <input value="<%= user.breakfast_max_price %>" name="breakfast_max_price" type="number" class="form-control" id="breakfast-max-price" placeholder="Maximum price" required />
             </div>
             <div class="mb-3">
               <h3 class="h5 mt-4 colorPrimary">
@@ -169,77 +200,77 @@
 
               <div class="form-group">
                 <label for="salty">Salty</label>
-                <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_salty %>" name="breakfast_salty" type="range" class="form-range" id="salty" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sweet">Sweet</label>
-                <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_sweet %>" name="breakfast_sweet" type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sour">Sour</label>
-                <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_sour %>" name="breakfast_sour" type="range" class="form-range" id="sour" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="savory">Savory</label>
-                <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_savory %>" name="breakfast_savory" type="range" class="form-range" id="savory" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="spicy">Spicy</label>
-                <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_spicy %>" name="breakfast_spicy" type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="crispy">Crispy</label>
-                <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_crispy %>" name="breakfast_crispy" type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="smooth">Smooth</label>
-                <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_smooth %>" name="breakfast_smooth" type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="creamy">Creamy</label>
-                <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_creamy %>" name="breakfast_creamy" type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="thick">Thick</label>
-                <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_thick %>" name="breakfast_thick" type="range" class="form-range" id="thick" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fried">Fried</label>
-                <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_fried %>" name="breakfast_fried" type="range" class="form-range" id="fried" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="boiled">Boiled</label>
-                <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_bioled %>" name="breakfast_bioled" type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="grilled">Grilled</label>
-                <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_grilled %>" name="breakfast_grilled" type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="steamed">Steamed</label>
-                <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+                <input  value="<%= user.breakfast_steamed %>" name="breakfast_steamed" type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fastFood">Fast Food</label>
-                <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_fastfood %>" name="breakfast_fastfood" type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="storeBought">Store Bought</label>
-                <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_store_bought %>" name="breakfast_store_bought" type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
               </div>
             </div>
           </div>
@@ -247,11 +278,11 @@
             <h2 class="mb-4 colorPrimary">Lunch</h2>
             <div class="mb-3">
               <label for="lunch-min-price">Minimum Price</label>
-              <input type="number" class="form-control" id="lunch-min-price" placeholder="Minimum price" required />
+              <input value="<%= user.lunch_min_price %>" name="lunch_min_price" type="number" class="form-control" id="lunch-min-price" placeholder="Minimum price" required />
             </div>
             <div class="mb-3">
               <label for="lunch-max-price">Maximum Price</label>
-              <input type="number" class="form-control" id="lunch-max-price" placeholder="Maximum price" required />
+              <input value="<%= user.lunch_max_price %>" name="lunch_max_price" type="number" class="form-control" id="lunch-max-price" placeholder="Maximum price" required />
             </div>
             <div class="mb-3">
               <h3 class="h5 mt-4 colorPrimary">
@@ -260,77 +291,77 @@
 
               <div class="form-group">
                 <label for="salty">Salty</label>
-                <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_salty %>" name="lunch_salty" type="range" class="form-range" id="salty" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sweet">Sweet</label>
-                <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_sweet %>" name="lunch_sweet" type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sour">Sour</label>
-                <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_sour %>" name="lunch_sour" type="range" class="form-range" id="sour" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="savory">Savory</label>
-                <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_savory %>" name="lunch_savory" type="range" class="form-range" id="savory" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="spicy">Spicy</label>
-                <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_spicy %>" name="lunch_spicy" type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="crispy">Crispy</label>
-                <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_crispy %>" name="lunch_crispy" type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="smooth">Smooth</label>
-                <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_smooth %>" name="lunch_smooth" type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="creamy">Creamy</label>
-                <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_creamy %>" name="lunch_creamy" type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="thick">Thick</label>
-                <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_thick %>" name="lunch_thick" type="range" class="form-range" id="thick" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fried">Fried</label>
-                <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_fried %>" name="lunch_fried" type="range" class="form-range" id="fried" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="boiled">Boiled</label>
-                <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_boiled %>" name="lunch_boiled" type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="grilled">Grilled</label>
-                <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_grilled %>" name="lunch_grilled" type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="steamed">Steamed</label>
-                <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_steamed %>" name="lunch_steamed" type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fastFood">Fast Food</label>
-                <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_fastfood %>" name="lunch_fastfood" type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="storeBought">Store Bought</label>
-                <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+                <input value="<%= user.lunch_store_bought %>" name="lunch_store_bought" type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
               </div>
             </div>
           </div>
@@ -338,11 +369,11 @@
             <h2 class="mb-4 colorPrimary">Dinner</h2>
             <div class="mb-3">
               <label for="dinner-min-price">Minimum Price</label>
-              <input type="number" class="form-control" id="dinner-min-price" placeholder="Minimum price" required />
+              <input name="dinner_min_price" value="<%= user.dinner_min_price %>" type="number" class="form-control" id="dinner-min-price" placeholder="Minimum price" required />
             </div>
             <div class="mb-3">
               <label for="dinner-max-price">Maximum Price</label>
-              <input type="number" class="form-control" id="dinner-max-price" placeholder="Maximum price" required />
+              <input value="<%= user.dinner_max_price %>" name="dinner_max_price"  type="number" class="form-control" id="dinner-max-price" placeholder="Maximum price" required />
             </div>
             <div class="mb-3">
               <h3 class="h5 mt-4 colorPrimary">
@@ -351,77 +382,77 @@
 
               <div class="form-group">
                 <label for="salty">Salty</label>
-                <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_salty %>" name="dinner_salty" type="range" class="form-range" id="salty" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sweet">Sweet</label>
-                <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_sweet %>" name="dinner_sweet" type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sour">Sour</label>
-                <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_sour %>" name="dinner_sour" type="range" class="form-range" id="sour" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="savory">Savory</label>
-                <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_savory %>" name="dinner_savory" type="range" class="form-range" id="savory" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="spicy">Spicy</label>
-                <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_spicy %>" name="dinner_spicy" type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="crispy">Crispy</label>
-                <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_crispy %>" name="dinner_crispy" type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="smooth">Smooth</label>
-                <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_smooth %>" name="dinner_smooth" type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="creamy">Creamy</label>
-                <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_creamy %>" name="dinner_creamy" type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="thick">Thick</label>
-                <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_thick %>" name="dinner_thick" type="range" class="form-range" id="thick" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fried">Fried</label>
-                <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_fried %>" name="dinner_fried" type="range" class="form-range" id="fried" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="boiled">Boiled</label>
-                <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_boiled %>" name="dinner_boiled" type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="grilled">Grilled</label>
-                <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_grilled %>" name="dinner_grilled" type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="steamed">Steamed</label>
-                <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_steamed %>" name="dinner_steamed" type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fastFood">Fast Food</label>
-                <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_fastfood %>" name="dinner_fastfood" type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="storeBought">Store Bought</label>
-                <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+                <input value="<%= user.dinner_store_bought %>" name="dinner_store_bought" type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
               </div>
             </div>
           </div>
@@ -429,11 +460,11 @@
             <h2 class="mb-4 colorPrimary">Snack</h2>
             <div class="mb-3">
               <label for="snack-min-price">Minimum Price</label>
-              <input type="number" class="form-control" id="snack-min-price" placeholder="Minimum price" required />
+              <input value="<%= user.snack_min_price %>" name="snack_min_price" type="number" class="form-control" id="snack-min-price" placeholder="Minimum price" required />
             </div>
             <div class="mb-3">
               <label for="snack-max-price">Maximum Price</label>
-              <input type="number" class="form-control" id="snack-max-price" placeholder="Maximum price" required />
+              <input value="<%= user.snack_max_price %>" name="snack_max_price" type="number" class="form-control" id="snack-max-price" placeholder="Maximum price" required />
             </div>
             <div class="mb-3">
               <h3 class="h5 mt-4 colorPrimary">
@@ -442,77 +473,77 @@
 
               <div class="form-group">
                 <label for="salty">Salty</label>
-                <input type="range" class="form-range" id="salty" min="1" max="10" step="1" />
+                <input value="<%= user.snack_salty %>" name="snack_salty" type="range" class="form-range" id="salty" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sweet">Sweet</label>
-                <input type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
+                <input value="<%= user.snack_sweet %>" name="snack_sweet" type="range" class="form-range" id="sweet" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="sour">Sour</label>
-                <input type="range" class="form-range" id="sour" min="1" max="10" step="1" />
+                <input value="<%= user.snack_sour %>" name="snack_sour" type="range" class="form-range" id="sour" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="savory">Savory</label>
-                <input type="range" class="form-range" id="savory" min="1" max="10" step="1" />
+                <input value="<%= user.snack_savory %>" name="snack_savory" type="range" class="form-range" id="savory" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="spicy">Spicy</label>
-                <input type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
+                <input value="<%= user.snack_spicy %>" name="snack_spicy" type="range" class="form-range" id="spicy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="crispy">Crispy</label>
-                <input type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
+                <input value="<%= user.snack_crispy %>" name="snack_crispy" type="range" class="form-range" id="crispy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="smooth">Smooth</label>
-                <input type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
+                <input value="<%= user.snack_smooth %>" name="snack_smooth" type="range" class="form-range" id="smooth" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="creamy">Creamy</label>
-                <input type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
+                <input value="<%= user.snack_creamy %>" name="snack_creamy" type="range" class="form-range" id="creamy" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="thick">Thick</label>
-                <input type="range" class="form-range" id="thick" min="1" max="10" step="1" />
+                <input value="<%= user.snack_thick %>" name="snack_thick" type="range" class="form-range" id="thick" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fried">Fried</label>
-                <input type="range" class="form-range" id="fried" min="1" max="10" step="1" />
+                <input value="<%= user.snack_fried %>" name="snack_fried" type="range" class="form-range" id="fried" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="boiled">Boiled</label>
-                <input type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+                <input value="<%= user.snack_boiled %>" name="snack_boiled" type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="grilled">Grilled</label>
-                <input type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
+                <input value="<%= user.snack_grilled %>" name="snack_grilled" type="range" class="form-range" id="grilled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="steamed">Steamed</label>
-                <input type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
+                <input value="<%= user.snack_steamed %>" name="snack_steamed" type="range" class="form-range" id="steamed" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="fastFood">Fast Food</label>
-                <input type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
+                <input value="<%= user.snack_fastfood %>" name="snack_fastfood" type="range" class="form-range" id="fastFood" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">
                 <label for="storeBought">Store Bought</label>
-                <input type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
+                <input value="<%= user.snack_store_bought %>" name="snack_store_bought" type="range" class="form-range" id="storeBought" min="1" max="10" step="1" />
               </div>
             </div>
           </div>
@@ -524,22 +555,22 @@
     <!-- About end -->
 
     <!-- Footer Start -->
-    <div class="mt-5 container-fluid bgPrimary">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 bgPrimary">
-        <div class="col-md-4 d-flex align-items-center">
-          </a>
-          <span class="mb-3 mb-md-0 text-white">&copy; 2023 C23-PR489, Bangkit Academy Capstone</span>
-        </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3">
-            <a class="text-dark" href="#"><i class="fas fa-twitter"></i></a>
-          </li>
-        </ul>
-      </footer>
-    </div>
     <!-- Footer End -->
   </main>
+  <div class="mt-5 container-fluid bgPrimary">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 bgPrimary">
+      <div class="col-md-4 d-flex align-items-center">
+        </a>
+        <span class="mb-3 mb-md-0 text-white">&copy; 2023 C23-PR489, Bangkit Academy Capstone</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+          <a class="text-dark" href="#"><i class="fas fa-twitter"></i></a>
+        </li>
+      </ul>
+    </footer>
+  </div>
 
   <!-- <script
       src="assets/dist/js/bootstrap.bundle.min.js"
@@ -549,7 +580,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-  <script>
+  <!-- <script>
     $(document).ready(function () {
       // Fungsi untuk mendapatkan data profil melalui AJAX
       function getProfileData() {
@@ -606,7 +637,7 @@
       $('form').on('submit', updateProfile);
     });
 
-  </script>
+  </script> -->
 </body>
 
 </html>

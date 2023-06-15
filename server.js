@@ -1,12 +1,13 @@
 require("dotenv").config();
 
 const express = require("express");
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
+const methodOverride = require("method-override");
 // const expressEjsLayouts = require("express-ejs-layouts");
-const bodyParser = require("body-parser");
-const path = require("path");
 const router = require("./routes/index");
 
 const app = express();
@@ -15,10 +16,11 @@ const port = process.env.PORT || 4000;
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 
 app.use(
   session({
-    secret: "nutrirahasia102",
+    secret: "geeksforgeeks",
     saveUninitialized: false,
     resave: false,
   })
