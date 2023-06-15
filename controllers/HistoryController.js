@@ -1,5 +1,7 @@
 module.exports = {
   index(req, res) {
-    res.render("history");
+    res.render("history", {
+      user: req.user,
+    });
   },
 };
