@@ -141,10 +141,13 @@
                 <option value="other" <% if (user.gender == 'other') { %> selected <% } %>>Other</option>
               </select>
             </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input name="age" type="number" class="form-control" id="age" value="<%= user.age %>">
+            </div>
           </div>
           <div class="col-6">
             <h2 class="mb-4 colorPrimary">Body Details</h2>
-
             <div class="mb-3">
               <label for="height" class="form-label">Height (cm)</label>
               <input name="height" type="number" class="form-control" id="height" value="<%= user.height %>">
@@ -163,13 +166,11 @@
                 <option value="very_high" <% if (user.activity == 'very_high') { %> selected <% } %>>Very High</option>
               </select>
             </div>
-          </div>
-          <div class="col-6">
             <div class="mb-3">
               <label for="job" class="form-label">Job</label>
               <select name="job" class="form-select" id="job">
                 <option value="">Select</option>
-                <option value="colleege student" <% if (user.job == 'colleege student') { %> selected <% } %>>Colleege Student</option>
+                <option value="college student" <% if (user.job == 'college student') { %> selected <% } %>>College Student</option>
                 <option value="enterpreneur" <% if (user.job == 'enterpreneur') { %> selected <% } %>>Enterpreneur</option>
                 <option value="pns" <% if (user.job == 'pns') { %> selected <% } %>>PNS</option>
                 <option value="police" <% if (user.job == 'police') { %> selected <% } %>>Police</option>
@@ -178,7 +179,6 @@
               </select>
             </div>
           </div>
-
 
           <div class="col-12 mt-3">
             <h2 class="mb-4 colorPrimary">User Meal Preferency</h2>

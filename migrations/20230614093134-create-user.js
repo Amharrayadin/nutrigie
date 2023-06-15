@@ -25,6 +25,10 @@ module.exports = {
         type: Sequelize.STRING(10),
         allowNull: true,
       },
+      age: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+      },
       job: {
         type: Sequelize.STRING(100),
         allowNull: true,

@@ -30,6 +30,7 @@ router.get("/history", VerifyUser.auth, HistoryController.index);
 router.get("/login", VerifyUser.guest, AuthController.login);
 router.post("/login", VerifyUser.guest, AuthController.loginProcess);
 router.get("/register", VerifyUser.guest, AuthController.register);
+router.post("/register", VerifyUser.guest, AuthController.registerProcess);
 router.get("/logout", VerifyUser.auth, AuthController.logout);
 
 router.get("/coba", async (req, res) => {

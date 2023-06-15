@@ -16,6 +16,7 @@ module.exports = {
   login(req, res) {
     res.render("auth/login", {
       error: req.flash("error"),
+      success: req.flash("success"),
     });
   },
 
@@ -53,24 +54,19 @@ module.exports = {
   },
 
   async registerProcess(req, res) {
-    const { name, username, email, password, confPassword } = req.body;
-    if (password !== confPassword)
-      return res
-        .status(400)
-        .json({ msg: "Password dan confirm password tidak cocok." });
-
+    const { username, email, password } = req.body;
     const salt = await bycrypt.genSalt();
     const hashPassword = await bycrypt.hash(password, salt);
 
     try {
       await User.create({
-        name: name,
         username: username,
         email: email,
         password: hashPassword,
       });
 
-      res.json({ msg: "Register berhasil." });
+      req.flash("success", "Register berhasil.");
+      res.redirect("/login");
     } catch (error) {
       console.log(error);
     }
@@ -91,6 +87,7 @@ module.exports = {
       username: req.body.username,
       email: req.body.email,
       gender: req.body.gender,
+      age: req.body.age,
       job: req.body.job,
       height: req.body.height,
       weight: req.body.weight,
