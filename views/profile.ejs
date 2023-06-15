@@ -138,7 +138,6 @@
                 <option value="">Select</option>
                 <option value="male" <% if (user.gender == 'male') { %> selected <% } %>>Male</option>
                 <option value="female" <% if (user.gender == 'female') { %> selected <% } %>>Female</option>
-                <option value="other" <% if (user.gender == 'other') { %> selected <% } %>>Other</option>
               </select>
             </div>
             <div class="mb-3">
@@ -163,7 +162,6 @@
                 <option value="low" <% if (user.activity == 'low') { %> selected <% } %>>Low</option>
                 <option value="moderate" <% if (user.activity == 'moderate') { %> selected <% } %>>Moderate</option>
                 <option value="high" <% if (user.activity == 'high') { %> selected <% } %>>High</option>
-                <option value="very_high" <% if (user.activity == 'very_high') { %> selected <% } %>>Very High</option>
               </select>
             </div>
             <div class="mb-3">
@@ -250,7 +248,7 @@
 
               <div class="form-group">
                 <label for="boiled">Boiled</label>
-                <input value="<%= user.breakfast_bioled %>" name="breakfast_bioled" type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
+                <input value="<%= user.breakfast_boiled %>" name="breakfast_boiled" type="range" class="form-range" id="boiled" min="1" max="10" step="1" />
               </div>
 
               <div class="form-group">

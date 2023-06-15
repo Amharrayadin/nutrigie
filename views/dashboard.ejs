@@ -125,7 +125,7 @@
         <div class="col">
           <div class="progress mt-4 progress-lg" role="progressbar" aria-label="Success striped example"
             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar progress-bar-striped  bg-success" style="width: 75%; ">75%</div>
+            <div class="progress-bar progress-bar-striped  bg-success" style="width: 99%; ">75%</div>
           </div>
           <p class="text-end mt-1"><b>2000</b>/2200 Kkal</p>
         </div>
@@ -154,246 +154,99 @@
 
         <div class="filters-content">
           <div class="row grid">
-            <div class="col-sm-6 col-lg-4 breakfast">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/93.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Nasi + Telur</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 breakfast">
-              <div class="box bgPrimary shadow">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/93.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Nasi + Telur</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
+            <!-- breakfast -->
+            <% breakfastMenu.forEach(bf => { %>
+              <div class="col-sm-6 col-lg-4 breakfast">
+                <div class="box bgPrimary shadow-md">
+                  <div>
+                    <div class="img-box"
+                      style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                      <br><br><br><br><br><br><br>
+                    </div>
+                    <div class="detail-box">
+                      <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                      <p class="text-light">
+                        Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                        <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="">Select</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 breakfast">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/93.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Nasi + Telur</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 lunch">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/156.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Soto Banjar</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
+            <% }) %>
+            <!-- lunch -->
+            <% lunchMenu.forEach(bf => { %>
+              <div class="col-sm-6 col-lg-4 lunch">
+                <div class="box bgPrimary shadow-md">
+                  <div>
+                    <div class="img-box"
+                      style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                      <br><br><br><br><br><br><br>
+                    </div>
+                    <div class="detail-box">
+                      <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                      <p class="text-light">
+                        Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                        <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="">Select</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 lunch">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/156.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Soto Banjar</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 lunch">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/156.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Soto Banjar</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
+            <% }) %>
+            <!-- dinner -->
+            <% dinnerMenu.forEach(bf => { %>
+              <div class="col-sm-6 col-lg-4 dinner">
+                <div class="box bgPrimary shadow-md">
+                  <div>
+                    <div class="img-box"
+                      style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                      <br><br><br><br><br><br><br>
+                    </div>
+                    <div class="detail-box">
+                      <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                      <p class="text-light">
+                        Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                        <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="">Select</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 dinner">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/115.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Nasi Goreng</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 dinner">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/115.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Nasi Goreng</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
+            <% }) %>
+            <!-- snack -->
+            <% snackMenu.forEach(bf => { %>
+              <div class="col-sm-6 col-lg-4 snack">
+                <div class="box bgPrimary shadow-md">
+                  <div>
+                    <div class="img-box"
+                      style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                      <br><br><br><br><br><br><br>
+                    </div>
+                    <div class="detail-box">
+                      <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                      <p class="text-light">
+                        Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                        <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                      </p>
+                    </div>
+                    <div class="btn-box">
+                      <a href="">Select</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 dinner">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/115.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Nasi Goreng</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 snack">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/34.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Keripik Ubi</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 snack">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/34.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Keripik Ubi</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 snack">
-              <div class="box bgPrimary shadow-md">
-                <div>
-                  <div class="img-box"
-                    style="background-image: url(assets/dist/img/food_image/34.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: 15px;">
-                    <br><br><br><br><br><br><br>
-                  </div>
-                  <div class="detail-box">
-                    <h5 class="text-center mt-2 text-light">Keripik Ubi</h5>
-                    <p class="text-light">
-                      Kalori : 23 kkal, Protein : 15 gr
-                      <br>Lemak : 14 gr, Karbohidrat : 0.4 gr
-                    </p>
-                  </div>
-                  <div class="btn-box">
-                    <a href="">Select</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% }) %>
+           
             <!-- ...Sisipkan kode lainnya... -->
           </div>
         </div>

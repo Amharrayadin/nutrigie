@@ -1,3 +1,5 @@
+const { History, User } = require("../models");
+
 // tensorflow tjs
 const tf = require("@tensorflow/tfjs");
 
@@ -10,6 +12,22 @@ const DashboardController = require("../controllers/DashboardController");
 const AuthController = require("../controllers/AuthController");
 const HistoryController = require("../controllers/HistoryController");
 const VerifyUser = require("../middlewares/VerifyUser");
+
+router.get("/testes", async (req, res) => {
+  const history = await History.findByPk(1);
+  if (history) {
+    const user = await history.getUser(); // Menggunakan getUser() untuk mendapatkan objek User terkait
+    res.json(user);
+  }
+});
+
+router.get("/usertes", async (req, res) => {
+  const user = await User.findByPk(1);
+  if (user) {
+    const histories = await user.getHistories(); // Menggunakan getHistories() untuk mendapatkan riwayat terkait
+    res.json(histories);
+  }
+});
 
 // home route
 router.get("/", VerifyUser.auth, HomeController.index);
