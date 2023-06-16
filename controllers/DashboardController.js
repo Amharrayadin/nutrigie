@@ -362,7 +362,7 @@ module.exports = {
 
     // if (user) {
     // Cari data histori untuk hari ini
-    const today = moment().subtract(0, "days").toDate();
+    const today = moment().subtract(1, "days").toDate();
     const tomorrow = moment(today).add(1, "days");
     const todayHistory = await History.findOne({
       where: {
@@ -443,7 +443,7 @@ module.exports = {
     const userId = req.user.id;
 
     // Mendapatkan histori untuk hari ini
-    const today = moment().subtract(0, "days").toDate();
+    const today = moment().subtract(1, "days").toDate();
     const history = await History.findOne({
       where: {
         user_id: req.user.id,
@@ -454,18 +454,37 @@ module.exports = {
       order: [["date", "DESC"]],
     });
 
+    // const fast = parseInt(breakfast_id, 10);
     // Menambahkan kalori_kkal ke histori
-    // return res.json({ breakfast_id, lunch_id, dinner_id, snack_id });
+    // return res.json({ breakfast_id, fast });
     const kkal_new = (history.kkal += parseInt(kalori_kkal, 10));
+
     // history.setDataValue("breakfast_id", breakfast_id);
     // await history.save();
-    await history.set({
-      breakfast_id: breakfast_id,
-      lunch_id: lunch_id,
-      dinner_id: dinner_id,
-      snack_id: snack_id,
-      kkal: kkal_new,
-    });
+    if (breakfast_id != null) {
+      await history.set({
+        breakfast_id: parseInt(breakfast_id, 10),
+        kkal: kkal_new,
+      });
+    }
+    if (lunch_id != null) {
+      await history.set({
+        lunch_id: parseInt(lunch_id, 10),
+        kkal: kkal_new,
+      });
+    }
+    if (dinner_id != null) {
+      await history.set({
+        dinner_id: parseInt(dinner_id, 10),
+        kkal: kkal_new,
+      });
+    }
+    if (snack_id != null) {
+      await history.set({
+        snack_id: parseInt(snack_id, 10),
+        kkal: kkal_new,
+      });
+    }
 
     history.save();
 

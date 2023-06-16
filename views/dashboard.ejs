@@ -155,6 +155,7 @@
           <div class="row grid">
             <!-- breakfast -->
             <% breakfastMenu.forEach(bf => { %>
+              <% if (histories.breakfast_id == null) { %>
               <div class="col-sm-6 col-lg-4 breakfast">
                 <div class="box bgPrimary shadow-md">
                   <div>
@@ -179,10 +180,35 @@
                   </div>
                 </div>
               </div>
+              <% } %>
+              <% if (histories.breakfast_id == bf.id) { %>
+                <div class="col-sm-6 col-lg-4 breakfast">
+                  <div class="box bgPrimary shadow-md">
+                    <div>
+                      <div class="img-box"
+                        style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                        <br><br><br><br><br><br><br>
+                      </div>
+                      <div class="detail-box">
+                        <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                        <p class="text-light">
+                          Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                          <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                        </p>
+                      </div>
+                      <div class="btn-box">
+                          <button class="btn bg-light">Selected</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
             <% }) %>
+
             <!-- lunch -->
             <% lunchMenu.forEach(bf => { %>
-              <div class="col-sm-6 col-lg-4 lunch">
+              <% if (histories.lunch_id == null) { %>
+                <div class="col-sm-6 col-lg-4 lunch">
                 <div class="box bgPrimary shadow-md">
                   <div>
                     <div class="img-box"
@@ -206,9 +232,34 @@
                   </div>
                 </div>
               </div>
+              <% } %>
+              <% if (histories.lunch_id == bf.id) { %>
+                <div class="col-sm-6 col-lg-4 lunch">
+                  <div class="box bgPrimary shadow-md">
+                    <div>
+                      <div class="img-box"
+                        style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                        <br><br><br><br><br><br><br>
+                      </div>
+                      <div class="detail-box">
+                        <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                        <p class="text-light">
+                          Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                          <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                        </p>
+                      </div>
+                      <div class="btn-box">
+                          <button class="btn bg-light">Selected</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
             <% }) %>
+
             <!-- dinner -->
             <% dinnerMenu.forEach(bf => { %>
+              <% if (histories.dinner_id == null) { %>
               <div class="col-sm-6 col-lg-4 dinner">
                 <div class="box bgPrimary shadow-md">
                   <div>
@@ -233,9 +284,34 @@
                   </div>
                 </div>
               </div>
+              <% } %>
+              <% if (histories.dinner_id == bf.id) { %>
+                <div class="col-sm-6 col-lg-4 dinner">
+                  <div class="box bgPrimary shadow-md">
+                    <div>
+                      <div class="img-box"
+                        style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                        <br><br><br><br><br><br><br>
+                      </div>
+                      <div class="detail-box">
+                        <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                        <p class="text-light">
+                          Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                          <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                        </p>
+                      </div>
+                      <div class="btn-box">
+                          <button class="btn bg-light">Selected</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
             <% }) %>
+
             <!-- snack -->
             <% snackMenu.forEach(bf => { %>
+              <% if (histories.snack_id == null) { %>
               <div class="col-sm-6 col-lg-4 snack">
                 <div class="box bgPrimary shadow-md">
                   <div>
@@ -260,6 +336,29 @@
                   </div>
                 </div>
               </div>
+              <% } %>
+              <% if (histories.snack_id == bf.id) { %>
+                <div class="col-sm-6 col-lg-4 snack">
+                  <div class="box bgPrimary shadow-md">
+                    <div>
+                      <div class="img-box"
+                        style="background-image: url(assets/dist/img/food_image/<%= bf.id %>.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; border-radius: <%= bf.borderRadius %>px;">
+                        <br><br><br><br><br><br><br>
+                      </div>
+                      <div class="detail-box">
+                        <h5 class="text-center mt-2 text-light"><%= bf.nama %></h5>
+                        <p class="text-light">
+                          Kalori : <%= bf.energi_kkal %> kkal, Protein : <%= bf.protein_g %> gr
+                          <br>Lemak : <%= bf.lemak_g %> gr, Karbohidrat : <%= bf.karbohidrat_g %> gr
+                        </p>
+                      </div>
+                      <div class="btn-box">
+                          <button class="btn bg-light">Selected</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
             <% }) %>
            
             <!-- ...Sisipkan kode lainnya... -->

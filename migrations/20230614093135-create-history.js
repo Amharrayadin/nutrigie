@@ -28,18 +28,22 @@ module.exports = {
       breakfast_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        // defaultValue: 0,
       },
       lunch_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        // defaultValue: 0,
       },
       dinner_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        // defaultValue: 0,
       },
       snack_id: {
         type: Sequelize.INTEGER,
         allowNull: true,
+        // defaultValue: 0,
       },
     });
   },

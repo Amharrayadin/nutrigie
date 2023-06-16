@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       date: DataTypes.DATE,
       max_kkal: DataTypes.INTEGER,
       kkal: DataTypes.INTEGER,
+      breakfast_id: DataTypes.INTEGER,
+      lunch_id: DataTypes.INTEGER,
+      dinner_id: DataTypes.INTEGER,
+      snack_id: DataTypes.INTEGER,
     },
     {
       sequelize,
