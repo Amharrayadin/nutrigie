@@ -43,7 +43,7 @@ This project is built with Node.js and relies on several libraries for machine l
 
 1. **Prerequisites:**
 
-   Node.js (14.x or above)
+   Node.js (16.x or above)
 
 2. **Installing:**
 
