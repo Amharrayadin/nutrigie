@@ -362,7 +362,10 @@ module.exports = {
 
     // if (user) {
     // Cari data histori untuk hari ini
-    const today = moment().subtract(1, "days").toDate();
+    now = new moment();
+    now.utcOffset(420);
+    const today = now.subtract(1, "days").toDate();
+
     const tomorrow = moment(today).add(1, "days");
     const todayHistory = await History.findOne({
       where: {
