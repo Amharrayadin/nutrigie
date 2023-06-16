@@ -1,5 +1,7 @@
 # NutriGie: Your Daily Nutrition Guide
 
+## URL
+https://app-hkvu6ero4a-et.a.run.app
 ## Introduction
 
 NutriGie is an app designed to make healthy eating simple and convenient. By recommending foods based on your personal preferences and nutritional needs, and helping you track your daily nutritional intake, NutriGie puts healthier choices at your fingertips.
