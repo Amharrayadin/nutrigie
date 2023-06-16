@@ -25,6 +25,11 @@ But we're not just creating an app. We're aiming to build a bridge, a bridge tha
 - Daily nutritional tracking
 - User-friendly interface
 
+## Repositories
+
+- **Frontend & Backend:** [Website](https://github.com/Amharrayadin/nutrigie)
+- **Machine Learning:** [ML](https://github.com/klstak/NutriGie)
+
 ## Technologies & Dependencies
 
 This project is built with Node.js and relies on several libraries for machine learning, data analysis, and web development:
